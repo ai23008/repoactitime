@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class LoginPage{
-	@FindBy(id="username")
+	@FindBy(id="usename")
 	private WebElement unTB;
 	
 	@FindBy(name="pwd")

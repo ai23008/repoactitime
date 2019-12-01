@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,7 +24,14 @@ public abstract class Basetest implements IAutoConst {
 	}
 	
 	@AfterMethod
-	public void closeApp() {
+	public void closeApp(ITestResult itr) {
+		int status = itr.getStatus();
+		String name = itr.getName();
+		if(status==1) {Reporter.log("Test"+name+"is pass"+true);}
+		else {
+			Reporter.log("Test"+name+"is fail"+true);
+			Autolib.getphoto(driver, IMG_PATH+name+".png");
+		}
 		driver.close();
 	}
 
