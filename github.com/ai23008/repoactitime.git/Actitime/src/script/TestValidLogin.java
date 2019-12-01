@@ -1,6 +1,9 @@
 package script;
 
-import org.junit.Test;
+
+
+
+import org.testng.annotations.Test;
 
 import generic.Basetest;
 import generic.Xl;
@@ -11,6 +14,7 @@ public class TestValidLogin  extends Basetest{
 	public void validLogin() {
 		String un = Xl.getData(XL_PATH, "ValidLogin", 1, 0);
 		String pw = Xl.getData(XL_PATH, "ValidLogin", 1, 1);
+		
 		LoginPage L=new LoginPage(driver);
 		L.setUN(un);
 		L.setPW(pw);
